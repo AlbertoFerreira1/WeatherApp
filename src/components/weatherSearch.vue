@@ -1,4 +1,5 @@
 <template>
+  <div class="wrapper">
   <div class="Card">
     <input
       class="searchCard"
@@ -8,10 +9,12 @@
       @keyup.enter="fetchWeather"
     />
   </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+const emit = defineEmits(['weather-fetched'])
 
 const citySearch = ref('')
 
@@ -21,10 +24,11 @@ async function fetchWeather() {
 
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=YOUR_API_KEY&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=aa2b0748e2876d0b463ca2b19cf1f69c&units=metric`
     )
     if (!res.ok) throw new Error('City not found')
-    const data = await res.json()
+    const data = await res.json();
+     emit('weather-fetched', data);
     console.log('Weather:', data)
   } catch (err) {
     console.error(err.message)
@@ -34,9 +38,16 @@ async function fetchWeather() {
 
 
 <style>
+.wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+         
+}
+
 .searchCard{
   padding: 5px;
-  margin-left: 45%;
+   display: flex;
   border-radius: 10px;
 }
 

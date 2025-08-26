@@ -1,11 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Banner from './components/banner.vue';
+import WeatherSearch from './components/weatherSearch.vue';
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app">
+      <Banner></Banner>
+      <hr></hr>
+    <WeatherSearch></WeatherSearch>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app {
+  background-color: beige;
+}
+</style>

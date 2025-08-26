@@ -1,18 +1,12 @@
 # weather_app
+Small Project developed by myself to improve my Vue Skills and my API frontend fetching skills
+Just a small fun project where you should type a name of the city and it should show you ionformation about the weather for that day in that city 
+Should be able to see a full week at least when i "release" the full version
+Done with Vue3 
+used openweathermap free API to fetch the weather details
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 

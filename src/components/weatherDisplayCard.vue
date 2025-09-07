@@ -1,21 +1,36 @@
 <template>
-    <div class="wrapper" v-if="weather">
-        <div class="card">
-            <h2>{{ weather.name }} ({{ weather.sys.country }})</h2>
-            <p>Temperature {{ weather.main.temp }}°C</p>
-        </div>
+  <div class="wrapper" v-if="weather">
+    <div class="card">
+      <h2>{{ weather.name }} ({{ weather.sys.country }})</h2>
+      <p>Temperature {{ weather.main.temp }}°C</p>
+      <p>Max Temperature for the day {{ weather.main.temp_max }}</p>
+      <p>Min Temperature for the day {{ weather.main.temp_min }}</p>
+    
+<br></br>
+      <div v-if="weatherDescription" class="advice">
+        <weather-advice :description="weatherDescription" />
+      </div>
     </div>
-   <div class="wrapper" v-else>
-        <div class="card">
-          <p>Something Went Wrong, Check if You Spelled the city name correctly</p>
-        </div>
-    </div>
+  </div>
+
+  <div class="wrapper" v-else></div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue';
+import weatherAdvice from './weatherAdvice.vue';
+const props = defineProps<{
     weather: Record<string, any> | null
 }>()
+
+const weatherDescription = computed(() => {
+  if (!props.weather || !props.weather.weather || props.weather.weather.length === 0) {
+    return "Unknown weather";
+  } else {
+    return props.weather.weather[0].description;
+  }
+})
+
 </script>
 
 <style scoped>

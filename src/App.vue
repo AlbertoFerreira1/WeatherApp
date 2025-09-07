@@ -24,5 +24,6 @@ function handleWeather(data : any) {
 <style scoped>
 .app {
   background-color: beige;
+  height: max-content ;
 }
 </style>
